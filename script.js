@@ -48,25 +48,29 @@ window.addEventListener("load", function() {
 
         input.value = ``;
 
-
         taskEditElement.addEventListener("click", editElement);
 
         taskDeleteElement.addEventListener("click", removeElement);
 
-
-        function removeElement(){
-            taskList.removeChild(taskElement);
-        }
-        
         function editElement(){
             if(taskEditElement.innerText.toLowerCase() == "edit"){
                 taskInputElement.removeAttribute("readonly");
                 taskInputElement.focus();
                 taskEditElement.innerText = "Save";
+                taskInputElement.style.opacity = 1
             } else {
                 taskInputElement.setAttribute("readonly", "readonly");
                 taskEditElement.innerText = "Edit";
+                taskInputElement.style.opacity = 0.8;
             }
         }
+        
+        function removeElement(){
+            taskElement.classList.add("slide")
+            setTimeout(() => {
+                taskList.removeChild(taskElement);
+            },500)
+        }
+
     });
 });

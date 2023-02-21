@@ -39,14 +39,15 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
     margin: 0 auto;
 }
 header h1 {
-    font-size: 32px;
+    font-size: 38px;
     font-weight: 600;
     margin-bottom: 2rem;
     color: white;
+    padding: 2rem 1rem;
 }
 #new-task-from{
     display: flex;
-
+    padding: 2rem 1rem;
 }
 input, button{
     appearance: none;
@@ -62,6 +63,13 @@ input, button{
     margin-right: 1rem;
     font-size: 18px;
     color: var(--darkest);
+    transition: 0.2s ease-in-out;
+}
+#new-task-input:focus{
+    background-color: aliceblue;
+}
+#new-task-input:hover{
+    background-color: aliceblue;
 }
 #new-task-input::placeholder{
     color: var(--darker);
@@ -100,13 +108,31 @@ input, button{
     padding: 1rem;
     border-radius: 1rem;
     margin-bottom: 1rem;
+
 }
+.slide{
+   transform: translateX(10rem);
+   opacity: 0;
+   transition: 0.2s ease;
+}
+@keyframes fade {
+    from {
+      opacity: 1;
+      visibility: visible;
+    }
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+}
+
 .tasks .task .content{
     flex: 1 1 0%
 }
 .tasks .task .content .text{
+    opacity: 0.8;
     padding: 5px 1rem;
-    color: var(--fc);
+    color: snow;
     font-size: 18px;
     width: 100%;
     display: block;
@@ -135,7 +161,7 @@ input, button{
     opacity: 0.6;
 }
 .task .actions .edit {
-    color: var(--fc);
+    color: snow;
 }
 .task .actions .remove {
     color: rgba(216, 56, 56, 0.754);
